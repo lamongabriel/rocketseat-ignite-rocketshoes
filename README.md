@@ -1,4 +1,4 @@
-# RockeShoes
+# RocketShoes
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/lamongabriel/rocketseat-ignite-rocketshoes?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/lamongabriel/rocketseat-ignite-rocketshoes?style=for-the-badge)
@@ -50,7 +50,7 @@ yarn start
 
 You also need to change the api route to your localhost port. In order to do that, go to `/services/api.ts`. Then change `/baseURL: 'https://lamongabriel-rocketshoes.netlify.app/'` to your local adress, the default one is `http://localhost:3000/api`.
 
-## ☕ Usage <DT_MONEY>
+## ☕ Usage <ROCKETSHOES>
 
 Check out the custom hook in the folder hooks, or use the website to see it performing. Adding products, removing them and updating
 
