@@ -40,9 +40,9 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
     try {
       const temporaryCart = [...cart]
       const productExists = temporaryCart.find(product => product.id === productId)
-      const apiResponseStock = await api.get(`/stock/${productId}`)
+      const apiResponseStock = await api.get(`/stocks/${productId}`)
 
-      const warehouseStock = apiResponseStock.data.amount
+      const warehouseStock = apiResponseStock.data.stock.amount
       const currentAmount = productExists ? productExists.amount : 0
 
       if(currentAmount + 1 > warehouseStock){
@@ -55,7 +55,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
       } else{
         const productApiResponse = await api.get(`/products/${productId}`)
         const newProduct = {
-          ...productApiResponse.data, 
+          ...productApiResponse.data.product, 
           amount: 1
         }
         temporaryCart.push(newProduct)
@@ -94,8 +94,8 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
         return
       }
       
-      const apiResponseStock = await api.get(`/stock/${productId}`)
-      const warehouseStock = apiResponseStock.data.amount
+      const apiResponseStock = await api.get(`/stocks/${productId}`)
+      const warehouseStock = apiResponseStock.data.stock.amount
 
       if(amount > warehouseStock){
         toast.error('Selected quantity out of stock');

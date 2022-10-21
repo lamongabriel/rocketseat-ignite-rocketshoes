@@ -63,5 +63,5 @@ This project was developed using severous technologies to help organize, maintai
 - Styled Components
 - Polished
 - Axios
-- JSON Server
+- MirageJS
 - HTML, CSS and JS

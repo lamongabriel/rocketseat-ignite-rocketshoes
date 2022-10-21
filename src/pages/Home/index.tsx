@@ -13,6 +13,10 @@ interface Product {
   image: string
 }
 
+interface ProductsResponse {
+  products: Product[]
+}
+
 interface ProductFormatted extends Product {
   priceFormatted: string
 }
@@ -31,8 +35,8 @@ const Home = (): JSX.Element => {
 
   useEffect(() => {
     async function loadProducts() {
-      const response = await api.get<Product[]>('/products')
-      const productsFormatted = response.data.map(product => {
+      const response = await api.get<ProductsResponse>('/products')
+      const productsFormatted = response.data.products.map(product => {
         return { ...product, priceFormatted: formatPrice(product.price) }
       })
 
